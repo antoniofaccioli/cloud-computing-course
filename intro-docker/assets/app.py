@@ -1,2 +1,2 @@
-print("Cloud Computing and Distributed Systems — Lesson 8")
+print("Cloud Computing and Distributed Systems — Lesson Introduction Docker")
 print("Container is running successfully.")
