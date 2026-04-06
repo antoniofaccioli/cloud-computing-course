@@ -1,5 +1,5 @@
 {
-  "title": "Lesson 8 — Demo: Dockerfile and Docker images",
+  "title": "Intro: Dockerfile and Docker images",
   "description": "A guided introduction to Docker on Killercoda. Build, run, and optimise container images step by step. This scenario is used as a live demo during the lecture and can be replayed independently afterwards.",
   "difficulty": "Beginner",
   "time": "60",
