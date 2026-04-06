@@ -1,0 +1,41 @@
+{
+  "title": "Lesson 8 — Demo: Dockerfile and Docker images",
+  "description": "A guided introduction to Docker on Killercoda. Build, run, and optimise container images step by step. This scenario is used as a live demo during the lecture and can be replayed independently afterwards.",
+  "difficulty": "Beginner",
+  "time": "60",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Step 1 — Explore the environment",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2 — Build and run your first image",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3 — Layer caching in action",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4 — Multi-stage build",
+        "text": "step4.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "assets": {
+    "host01": [
+      { "file": "app.py", "target": "/root/app" },
+      { "file": "Dockerfile", "target": "/root/app" }
+    ]
+  }
+}
