@@ -1,5 +1,5 @@
 {
-  "title": "Intro ti Docker — Demo: Docker commands",
+  "title": "Introduction to Docker: Docker commands",
   "description": "A guided introduction to Docker commands on Killercoda. This scenario is used as a live demo during the lecture and can be replayed independently afterwards.",
   "difficulty": "Beginner",
   "time": "60",
@@ -29,9 +29,9 @@
       "text": "finish.md"
     },
     "assets": {
-      "client": [
-        { "file": "app.py", "target": "~/" },
-        { "file": "Dockerfile", "target": "~/" }
+      "host01": [
+        { "file": "app.py", "target": "/root/" },
+        { "file": "Dockerfile", "target": "/root/" }
       ]
     }
   },

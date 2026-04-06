@@ -38,13 +38,13 @@ The commands you will use in this scenario and in the exercises are:
 The application files are already in place:
 
 ```
-ls ~/
+ls /root/
 ```
 
 You will see `app.py` and `Dockerfile`. Read the Dockerfile:
 
 ```
-cat ~/Dockerfile
+cat /root/Dockerfile
 ```
 
 This is the only file you need to understand — not the Python code.
