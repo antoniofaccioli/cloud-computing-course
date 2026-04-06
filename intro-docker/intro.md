@@ -1,7 +1,6 @@
-# Lesson 8 — Demo: Docker commands
+# Lesson: Docker commands
 
 **Cloud Computing and Distributed Systems**
-A.A. 2025/2026
 
 ---
 
