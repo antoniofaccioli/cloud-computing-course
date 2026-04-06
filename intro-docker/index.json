@@ -1,11 +1,12 @@
 {
-  "title": "Intro: Dockerfile and Docker images",
+  "title": "Intro Docker: Dockerfile and Docker images",
   "description": "A guided introduction to Docker on Killercoda. Build, run, and optimise container images step by step. This scenario is used as a live demo during the lecture and can be replayed independently afterwards.",
   "difficulty": "Beginner",
   "time": "60",
   "details": {
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "foreground": "foreground.sh"
     },
     "steps": [
       {
@@ -13,15 +14,15 @@
         "text": "step1.md"
       },
       {
-        "title": "Step 2 — Build and run your first image",
+        "title": "Step 2 — Build an image",
         "text": "step2.md"
       },
       {
-        "title": "Step 3 — Layer caching in action",
+        "title": "Step 3 — Run and inspect a container",
         "text": "step3.md"
       },
       {
-        "title": "Step 4 — Multi-stage build",
+        "title": "Step 4 — Manage the container lifecycle",
         "text": "step4.md"
       }
     ],
@@ -34,8 +35,8 @@
   },
   "assets": {
     "host01": [
-      { "file": "app.py", "target": "/root/app" },
-      { "file": "Dockerfile", "target": "/root/app" }
+      { "file": "app.py", "target": "~/" },
+      { "file": "Dockerfile", "target": "~/" }
     ]
   }
 }

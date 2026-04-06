@@ -1,7 +1,7 @@
 # Lesson 8 — Demo: Docker commands
 
 **Cloud Computing and Distributed Systems**
-Università degli Studi di Verona — A.A. 2025/2026
+A.A. 2025/2026
 
 ---
 
