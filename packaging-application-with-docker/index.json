@@ -1,0 +1,49 @@
+{
+  "title": "Packaging a Python application with Docker",
+  "description": "A guided exercise on building and optimising Docker images. Follow the steps to build an image, observe layer caching, and apply a multi-stage build.",
+  "difficulty": "Beginner",
+  "time": "45",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      {
+        "title": "Step 1 — Explore the application",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2 — Build and run the first image",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3 — Observe layer caching",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4 — Fix the Dockerfile and verify the cache",
+        "text": "step4.md"
+      },
+      {
+        "title": "Step 5 — Multi-stage build",
+        "text": "step5.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        { "file": "app.py", "target": "/root/" },
+        { "file": "requirements.txt", "target": "/root/" },
+        { "file": "Dockerfile.v1", "target": "/root/" },
+        { "file": "Dockerfile.v2", "target": "/root/" },
+        { "file": "Dockerfile.v3", "target": "/root/" }
+      ]
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
