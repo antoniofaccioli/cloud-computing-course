@@ -1,0 +1,41 @@
+{
+  "title": "Packaging a Python application with Docker — Advanced",
+  "description": "An autonomous exercise on building and optimising Docker images. No step-by-step instructions — use what you know to reach each objective.",
+  "difficulty": "Intermediate",
+  "time": "45",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      {
+        "title": "Step 1 — Build and run",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2 — Layer caching",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3 — Multi-stage build",
+        "text": "step3.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        { "file": "app.py", "target": "/root/" },
+        { "file": "requirements.txt", "target": "/root/" },
+        { "file": "Dockerfile.v1", "target": "/root/" },
+        { "file": "Dockerfile.v2", "target": "/root/" },
+        { "file": "Dockerfile.v3", "target": "/root/" }
+      ]
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
