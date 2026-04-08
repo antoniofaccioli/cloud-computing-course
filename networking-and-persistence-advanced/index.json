@@ -15,9 +15,9 @@
     ],
     "finish": { "text": "finish.md" },
     "assets": {
-      "client": [
-        { "file": "counter.py", "target": "~/" },
-        { "file": "requirements.txt", "target": "~/" }
+      "host01": [
+        { "file": "counter.py", "target": "/root/" },
+        { "file": "requirements.txt", "target": "/root/" }
       ]
     }
   },
