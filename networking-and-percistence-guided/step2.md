@@ -37,6 +37,7 @@ The `-v` flag mounts the volume into the container. The format is `volume_name:p
 
 ```
 docker run -d -p 5000:5000 --name counter3 -v counterdata:/data counter:v1
+sleep 3
 ```
 
 Increment the counter several times:
@@ -76,6 +77,7 @@ docker volume ls
 
 ```
 docker run -d -p 5000:5000 --name counter4 -v counterdata:/data counter:v1
+sleep 3
 curl http://localhost:5000
 ```
 

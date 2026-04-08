@@ -22,6 +22,7 @@ You will see the line `EXPOSE 5000`. This tells Docker — and anyone reading th
 
 ```
 docker run -d --name counter-nopub --network appnet counter:v1
+sleep 3
 ```
 
 Try to reach it from the host:
@@ -71,6 +72,7 @@ Start a new container with `-p`:
 
 ```
 docker run -d --name counter-pub --network appnet -p 8080:5000 -v counterdata:/data counter:v1
+sleep 3
 ```
 
 Note: the format is `host_port:container_port`. Here port **8080** on the host is mapped to port **5000** inside the container. The two numbers do not need to match.
@@ -91,8 +93,6 @@ Now it works from the host as well.
 ```
 docker stop counter-pub counter
 docker rm counter-pub counter
-docker network rm appnet
-docker volume rm counterdata
 docker network rm appnet
 docker volume rm counterdata
 ```

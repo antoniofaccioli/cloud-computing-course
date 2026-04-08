@@ -29,6 +29,7 @@ The syntax is identical to a named volume but uses a full host path instead of a
 
 ```
 docker run -d -p 5000:5000 --name counter5 -v /root/mydata:/data counter:v1
+sleep 3
 ```
 
 Increment the counter a few times:

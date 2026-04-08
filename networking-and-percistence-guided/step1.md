@@ -25,6 +25,7 @@ Start a container from the image and map port 5000 on the host to port 5000 insi
 
 ```
 docker run -d -p 5000:5000 --name counter1 counter:v1
+sleep 3
 ```
 
 Wait a moment for the application to start, then increment the counter three times:
@@ -58,6 +59,7 @@ Start a brand-new container from the same image:
 
 ```
 docker run -d -p 5000:5000 --name counter2 counter:v1
+sleep 3
 curl http://localhost:5000
 ```
 
