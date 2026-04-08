@@ -100,11 +100,18 @@ This will fail with a name resolution error — the default bridge does not prov
 exit
 ```
 
-Clean up:
+Clean up the default bridge containers:
 
 ```
 docker stop counter-default client-default
 docker rm counter-default client-default
+```
+
+Also stop the `client` container still running on `appnet`:
+
+```
+docker stop client
+docker rm client
 ```
 
 ---

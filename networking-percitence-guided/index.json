@@ -15,15 +15,15 @@
       { "title": "Step 4 — Container networking", "text": "step4.md" },
       { "title": "Step 5 — Port exposure", "text": "step5.md" }
     ],
-    "finish": { "text": "finish.md" }
+    "finish": { "text": "finish.md" },
+    "assets": {
+      "client": [
+        { "file": "counter.py", "target": "~/" },
+        { "file": "requirements.txt", "target": "~/" }
+      ]
+    }
   },
   "backend": {
-    "imageid": "docker"
-  },
-  "assets": {
-    "host01": [
-      { "file": "counter.py", "target": "/root/" },
-      { "file": "requirements.txt", "target": "/root/" }
-    ]
+    "imageid": "ubuntu"
   }
 }

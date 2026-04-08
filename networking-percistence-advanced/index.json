@@ -13,15 +13,15 @@
       { "title": "Step 2 — Two-container application", "text": "step2.md" },
       { "title": "Step 3 — Controlled exposure", "text": "step3.md" }
     ],
-    "finish": { "text": "finish.md" }
+    "finish": { "text": "finish.md" },
+    "assets": {
+      "client": [
+        { "file": "counter.py", "target": "~/" },
+        { "file": "requirements.txt", "target": "~/" }
+      ]
+    }
   },
   "backend": {
-    "imageid": "docker"
-  },
-  "assets": {
-    "host01": [
-      { "file": "counter.py", "target": "/root/" },
-      { "file": "requirements.txt", "target": "/root/" }
-    ]
+    "imageid": "ubuntu"
   }
 }

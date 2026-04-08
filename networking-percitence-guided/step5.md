@@ -89,8 +89,10 @@ Now it works from the host as well.
 ## Clean up everything
 
 ```
-docker stop counter-pub client counter
-docker rm counter-pub client counter
+docker stop counter-pub counter
+docker rm counter-pub counter
+docker network rm appnet
+docker volume rm counterdata
 docker network rm appnet
 docker volume rm counterdata
 ```
