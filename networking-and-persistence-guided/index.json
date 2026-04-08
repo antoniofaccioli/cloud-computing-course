@@ -1,0 +1,29 @@
+{
+  "title": "Networking and persistence — Guided track",
+  "description": "A step-by-step exercise on Docker volumes and networks. No prior Docker experience required — every command is provided and explained.",
+  "difficulty": "Beginner",
+  "time": "45",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      { "title": "Step 1 — The ephemeral problem", "text": "step1.md" },
+      { "title": "Step 2 — Named volumes", "text": "step2.md" },
+      { "title": "Step 3 — Bind mounts", "text": "step3.md" },
+      { "title": "Step 4 — Container networking", "text": "step4.md" },
+      { "title": "Step 5 — Port exposure", "text": "step5.md" }
+    ],
+    "finish": { "text": "finish.md" }
+  },
+  "backend": {
+    "imageid": "docker"
+  },
+  "assets": {
+    "host01": [
+      { "file": "counter.py", "target": "/root/" },
+      { "file": "requirements.txt", "target": "/root/" }
+    ]
+  }
+}

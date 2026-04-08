@@ -1,0 +1,27 @@
+{
+  "title": "Networking and persistence — Advanced track",
+  "description": "An autonomous exercise on Docker volumes and networks. Objectives are defined — how to reach them is up to you.",
+  "difficulty": "Intermediate",
+  "time": "45",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      { "title": "Step 1 — Persistent counter", "text": "step1.md" },
+      { "title": "Step 2 — Two-container application", "text": "step2.md" },
+      { "title": "Step 3 — Controlled exposure", "text": "step3.md" }
+    ],
+    "finish": { "text": "finish.md" }
+  },
+  "backend": {
+    "imageid": "docker"
+  },
+  "assets": {
+    "host01": [
+      { "file": "counter.py", "target": "/root/" },
+      { "file": "requirements.txt", "target": "/root/" }
+    ]
+  }
+}
