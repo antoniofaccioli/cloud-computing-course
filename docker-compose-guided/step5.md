@@ -52,19 +52,21 @@ EOF
 
 The `healthcheck` on `cache` runs `redis-cli ping` every 5 seconds. Redis responds with `PONG` when ready. The `api` service uses `condition: service_healthy` — it will not start until Redis has passed at least one health check.
 
-## Start the stack and observe the order
+## Start the stack
 
 ```
-cd /root/lab && docker compose up
+cd /root/lab && docker compose up -d
 ```
 
-Run without `-d` this time so you can watch the output. You will see `cache` start first, pass its healthcheck, and only then see `api` start.
+Compose respects the dependency order: `cache` starts first and must pass its healthcheck before `api` is created.
 
-Press `Ctrl+C` to stop, then restart in detached mode:
+## Observe the startup order from the logs
 
 ```
-docker compose up -d
+docker compose logs --timestamps cache api
 ```
+
+Look at the timestamps — `cache` log entries appear before `api` log entries, confirming that `api` waited for Redis to be healthy before starting.
 
 ## Inspect health status
 
@@ -72,7 +74,7 @@ docker compose up -d
 docker compose ps
 ```
 
-The `cache` service now shows a health status. Check the details:
+The `cache` service now shows a health status column. Check the exact status:
 
 ```
 docker inspect lab-cache-1 --format '{{json .State.Health.Status}}'
