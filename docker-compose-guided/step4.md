@@ -52,23 +52,23 @@ cd /root/lab && docker compose up -d
 
 ## Confirm segmentation — web cannot reach cache
 
-Run a temporary Alpine container on the `frontend` network and try to reach `cache`:
+Run a temporary Alpine container on the `frontend` network and try to open a TCP connection to Redis:
 
 ```
-docker run --rm --network lab_frontend alpine wget -qO- http://cache:6379 --timeout=3
+docker run --rm --network lab_frontend alpine nc -zv cache 6379
 ```
 
-The connection times out — `cache` is only on `backend`, not on `frontend`.
+The connection fails — `cache` is only on `backend`, not on `frontend`, so the hostname does not resolve.
 
 ## Confirm segmentation — api can reach cache
 
-Run a temporary Alpine container on the `backend` network and try the same:
+Run the same test from the `backend` network:
 
 ```
-docker run --rm --network lab_backend alpine wget -qO- http://cache:6379 --timeout=3 || echo "TCP connect reached Redis (speaks its own protocol)"
+docker run --rm --network lab_backend alpine nc -zv cache 6379
 ```
 
-The TCP connection reaches the Redis port because both share the `backend` network. Redis closes it immediately since it does not speak HTTP, but the network path exists — which is what matters.
+`nc -zv` opens a TCP connection and exits immediately. You should see `cache (172.x.x.x:6379) open` — the port is reachable because both `api` and `cache` share the `backend` network.
 
 ## Inspect the networks
 
