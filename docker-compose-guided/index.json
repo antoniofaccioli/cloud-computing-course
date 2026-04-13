@@ -1,0 +1,23 @@
+{
+  "title": "Docker Compose — Guided track",
+  "description": "A step-by-step introduction to Docker Compose. You will write a docker-compose.yaml from scratch, add services, configure volumes, networks, and service dependencies.",
+  "difficulty": "Beginner",
+  "time": "45",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      { "title": "Step 1 — Your first Compose file", "text": "step1.md" },
+      { "title": "Step 2 — Adding a second service", "text": "step2.md" },
+      { "title": "Step 3 — Persistent storage with volumes", "text": "step3.md" },
+      { "title": "Step 4 — Network segmentation", "text": "step4.md" },
+      { "title": "Step 5 — Service dependencies and healthchecks", "text": "step5.md" }
+    ],
+    "finish": { "text": "finish.md" }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
