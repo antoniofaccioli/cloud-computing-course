@@ -1,0 +1,21 @@
+{
+  "title": "Docker Compose — Advanced track",
+  "description": "An autonomous Docker Compose exercise. You are given objectives and constraints — the commands and YAML are yours to write.",
+  "difficulty": "Intermediate",
+  "time": "45",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      { "title": "Step 1 — Bootstrap the project", "text": "step1.md" },
+      { "title": "Step 2 — Add a database with persistence", "text": "step2.md" },
+      { "title": "Step 3 — Add a reverse proxy and segment networks", "text": "step3.md" }
+    ],
+    "finish": { "text": "finish.md" }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
