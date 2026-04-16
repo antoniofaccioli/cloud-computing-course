@@ -1,0 +1,26 @@
+{
+  "title": "Progressive deploy — from Dockerfile to Compose",
+  "description": "Build a two-service web stack step by step. Each guided step is immediately followed by an autonomous task — you must complete it before the next guided step works.",
+  "difficulty": "Beginner",
+  "time": "90",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      { "title": "Step 1A — Build the frontend image (guided)", "text": "step1a.md" },
+      { "title": "Step 1B — Build the backend image (your turn)", "text": "step1b.md" },
+      { "title": "Step 2A — Add persistence to the backend (guided)", "text": "step2a.md" },
+      { "title": "Step 2B — Add persistence to the frontend (your turn)", "text": "step2b.md" },
+      { "title": "Step 3A — Connect the frontend to a network (guided)", "text": "step3a.md" },
+      { "title": "Step 3B — Connect the backend to the same network (your turn)", "text": "step3b.md" },
+      { "title": "Step 4A — Write the docker-compose.yaml (guided)", "text": "step4a.md" },
+      { "title": "Step 4B — Add healthcheck and depends_on (your turn)", "text": "step4b.md" }
+    ],
+    "finish": { "text": "finish.md" }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
