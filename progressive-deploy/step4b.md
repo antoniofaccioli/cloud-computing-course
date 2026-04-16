@@ -8,7 +8,7 @@ Make the stack production-ready by ensuring the frontend only starts once the ba
 
 Edit `/root/app/docker-compose.yaml` to add the following:
 
-1. A `healthcheck` on the `backend` service that periodically calls `http://localhost:5000/health`. The backend already has a `/health` endpoint that returns `{"status": "ok"}`. Use `CMD-SHELL` with `wget -qO- http://localhost:5000/health` as the test command. Set a reasonable interval, timeout, and number of retries.
+1. A `healthcheck` on the `backend` service that periodically calls `http://localhost:5000/health`. The backend already has a `/health` endpoint that returns `{"status": "ok"}`. Use `CMD` with `python3 -c "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"` as the test command — `python:3.11-slim` does not include `wget` or `curl`, but always includes `python3` with `urllib`. Set a reasonable interval, timeout, and number of retries.
 
 2. A `depends_on` entry on the `frontend` service that waits for `backend` to reach `condition: service_healthy` before starting.
 
