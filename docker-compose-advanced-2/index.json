@@ -1,0 +1,21 @@
+{
+  "title": "Docker Compose advanced — multi-environment stack",
+  "description": "An autonomous exercise on Docker Compose override files, environment variable interpolation, and service profiles. Objectives and constraints only — no commands provided.",
+  "difficulty": "Intermediate",
+  "time": "90",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      { "title": "Step 1 — Base file and development override", "text": "step1.md" },
+      { "title": "Step 2 — Environment variable interpolation", "text": "step2.md" },
+      { "title": "Step 3 — Optional services with profiles", "text": "step3.md" }
+    ],
+    "finish": { "text": "finish.md" }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
