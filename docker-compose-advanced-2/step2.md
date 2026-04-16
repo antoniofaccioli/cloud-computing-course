@@ -28,7 +28,10 @@ Modify the base `docker-compose.yaml` so that **every hardcoded value** is repla
 - The `APP_ENV` on the api service must reference `${APP_ENV}`
 - The `API_PORT` environment variable on the api service must reference `${API_PORT}`
 
-Also update `docker-compose.override.yaml` so that the published port uses `${API_PORT}:${API_PORT}` instead of a hardcoded value.
+Also update `docker-compose.override.yaml` so that:
+
+- The published port uses `${API_PORT}:${API_PORT}` instead of a hardcoded value
+- The `APP_ENV: development` line is **removed** — `APP_ENV` must now come exclusively from the `.env` file via interpolation in the base file. A hardcoded value in the override would always win over the `.env` file, making `--env-file .env.production` ineffective for that variable.
 
 ### The `.env.production` file
 
