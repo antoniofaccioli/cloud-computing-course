@@ -4,25 +4,32 @@
   "details": {
     "steps": [
       {
-        "title": "Step 1 — The cluster nodes"
+        "title": "Step 1 — The cluster nodes",
+        "text": "step1.md"
       },
       {
-        "title": "Step 2 — Control Plane components"
+        "title": "Step 2 — Control Plane components",
+        "text": "step2.md"
       },
       {
-        "title": "Step 3 — Inspecting the API Server"
+        "title": "Step 3 — Inspecting the API Server",
+        "text": "step3.md"
       },
       {
-        "title": "Step 4 — Inspecting etcd"
+        "title": "Step 4 — Inspecting etcd",
+        "text": "step4.md"
       },
       {
-        "title": "Step 5 — Worker Node components"
+        "title": "Step 5 — Worker Node components",
+        "text": "step5.md"
       },
       {
-        "title": "Step 6 — Creating a Pod and observing its lifecycle"
+        "title": "Step 6 — Creating a Pod and observing its lifecycle",
+        "text": "step6.md"
       },
       {
-        "title": "Step 7 — What happens when a Pod is deleted"
+        "title": "Step 7 — What happens when a Pod is deleted",
+        "text": "step7.md"
       }
     ],
     "intro": {
