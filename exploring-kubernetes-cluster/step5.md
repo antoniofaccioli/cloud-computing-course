@@ -1,6 +1,6 @@
 # Step 5 — Worker Node components
 
-Unlike Control Plane components, the **kubelet** and **kube-proxy** do not run as pods — they run as system daemons directly on the node.
+Unlike Control Plane components, the **kubelet** does not run as a pod — it runs as a system daemon directly on the node.
 
 Check that the kubelet is running:
 
@@ -22,14 +22,16 @@ You can see settings like `staticPodPath` — this is where the kubelet looks fo
 
 ---
 
-Now check kube-proxy. Unlike the kubelet, kube-proxy runs as a DaemonSet pod — one instance per node:
+Now look at the network-related components running in `kube-system`. Node-level networking is handled by DaemonSet pods — one instance per node. List all DaemonSets:
 
 ```
 kubectl get daemonset -n kube-system
 ```{{exec}}
 
+Then list all pods in `kube-system` to see what is actually running:
+
 ```
-kubectl describe daemonset kube-proxy -n kube-system
+kubectl get pods -n kube-system -o wide
 ```{{exec}}
 
-In the output note the **Image** and the **Node-Selector** — kube-proxy is scheduled on every node in the cluster automatically.
+Depending on the cluster configuration, you may see pods for `cilium`, `kube-proxy`, or another CNI implementation. Regardless of the name, the role is the same as described in the lesson: a network agent on every node that maintains the routing rules translating Service virtual IPs to the actual IP addresses of healthy Pods.
