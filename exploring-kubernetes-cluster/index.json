@@ -1,0 +1,38 @@
+{
+  "title": "Exploring a Kubernetes cluster",
+  "description": "Inspect the components of a running Kubernetes cluster: Control Plane, Worker Node, and the lifecycle of a Pod.",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1 — The cluster nodes"
+      },
+      {
+        "title": "Step 2 — Control Plane components"
+      },
+      {
+        "title": "Step 3 — Inspecting the API Server"
+      },
+      {
+        "title": "Step 4 — Inspecting etcd"
+      },
+      {
+        "title": "Step 5 — Worker Node components"
+      },
+      {
+        "title": "Step 6 — Creating a Pod and observing its lifecycle"
+      },
+      {
+        "title": "Step 7 — What happens when a Pod is deleted"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
