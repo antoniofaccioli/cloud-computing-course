@@ -1,0 +1,45 @@
+{
+  "title": "Kubernetes cluster: observe and answer",
+  "description": "Explore a running Kubernetes cluster and answer questions about what you find. Each step combines hands-on commands with a quiz question.",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1 — How many nodes?",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2 — The Control Plane namespace",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3 — The scheduler at work",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4 — etcd on disk",
+        "text": "step4.md"
+      },
+      {
+        "title": "Step 5 — The kubelet",
+        "text": "step5.md"
+      },
+      {
+        "title": "Step 6 — Pod events",
+        "text": "step6.md"
+      },
+      {
+        "title": "Step 7 — Static pods",
+        "text": "step7.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
