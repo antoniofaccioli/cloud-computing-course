@@ -41,7 +41,7 @@ spec:
       mountPath: /html
     command: ["/bin/sh", "-c"]
     args:
-    - while true; do date > /html/index.html; sleep 2; done
+    - while true; do date | tee /html/index.html; sleep 2; done
 EOF
 ```{{exec}}
 
@@ -63,7 +63,7 @@ Run the command again if not yet `2/2`:
 kubectl get pod shared-volume-pod
 ```{{exec}}
 
-Check the logs of the `writer` container — it has no output because it only writes to a file:
+Check the logs of the `writer` container — you will see the timestamps it is writing, because `tee` sends output to both the file and stdout:
 
 ```
 kubectl logs shared-volume-pod -c writer
