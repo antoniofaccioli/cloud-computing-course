@@ -1,0 +1,22 @@
+{
+  "title": "Pods — observe and answer",
+  "description": "Explore Pod manifests and behaviour step by step. After each step your instructor will launch a Kahoot question based on what you see on screen.",
+  "difficulty": "Beginner",
+  "time": "25",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      { "title": "Step 1 — What does the API say about a Pod?", "text": "step1.md" },
+      { "title": "Step 2 — What happens with a broken manifest?", "text": "step2.md" },
+      { "title": "Step 3 — Pod phases", "text": "step3.md" },
+      { "title": "Step 4 — The Pod IP", "text": "step4.md" },
+      { "title": "Step 5 — Targeting containers in exec and logs", "text": "step5.md" }
+    ],
+    "finish": { "text": "finish.md" }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
