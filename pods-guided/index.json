@@ -1,0 +1,21 @@
+{
+  "title": "Pods — guided track",
+  "description": "Write your first Pod manifest, apply it to a running Kubernetes cluster, and explore how containers inside the same Pod share a network namespace and a storage volume.",
+  "difficulty": "Beginner",
+  "time": "35",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      { "title": "Step 1 — Write and apply your first Pod manifest", "text": "step1.md" },
+      { "title": "Step 2 — Inspect the running Pod", "text": "step2.md" },
+      { "title": "Step 3 — A Pod with two containers sharing a volume", "text": "step3.md" },
+      { "title": "Step 4 — What happens when you delete a bare Pod?", "text": "step4.md" }
+    ],
+    "finish": { "text": "finish.md" }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
