@@ -1,0 +1,19 @@
+{
+  "title": "Pods — init container and sidecar (advanced)",
+  "description": "Combine what you learned in Exercise A: write a single Pod manifest that uses an init container to prepare data and a sidecar to monitor it. No commands provided.",
+  "difficulty": "Intermediate",
+  "time": "30",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      { "title": "Objective 1 — Init container + main container", "text": "step1.md" },
+      { "title": "Objective 2 — Add a monitoring sidecar", "text": "step2.md" }
+    ],
+    "finish": { "text": "finish.md" }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
