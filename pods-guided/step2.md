@@ -30,18 +30,18 @@ Open an interactive shell inside the running container:
 kubectl exec -it nginx-pod -- /bin/bash
 ```{{exec}}
 
-From inside the container, check the Nginx process and the network interface:
-
-```
-ps aux | grep nginx
-```{{exec}}
+From inside the container, check the hostname and the main process:
 
 ```
 hostname
 ```{{exec}}
 
 ```
+cat /proc/1/cmdline | tr '\0' ' ' && echo ""
+```{{exec}}
+
+```
 exit
 ```{{exec}}
 
-**Observation:** the hostname inside the container is the Pod name. This is because the container inherits the Pod's network namespace, and the Pod's hostname is set to its name.
+**Observation:** the hostname inside the container is the Pod name. This is because the container inherits the Pod's network namespace, and the Pod's hostname is set to its name. The `/proc/1/cmdline` output shows the command that the container's PID 1 is running — in this case the Nginx master process.
