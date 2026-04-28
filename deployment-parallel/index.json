@@ -1,0 +1,50 @@
+{
+  "title": "Deployments and Services with NodePort",
+  "description": "Guided exercise with parallel Kahoot: deploy an application, expose it with a NodePort Service, scale it, and observe how the Service adapts. Answer the Kahoot question at the end of each step.",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      {
+        "title": "Step 1 \u2014 Apply the Deployment",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2 \u2014 Observe the ReplicaSet",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3 \u2014 Expose with NodePort",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4 \u2014 Scale the Deployment",
+        "text": "step4.md"
+      },
+      {
+        "title": "Step 5 \u2014 Perform a rolling update",
+        "text": "step5.md"
+      },
+      {
+        "title": "Step 6 \u2014 Roll back",
+        "text": "step6.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  },
+  "difficulty": "Intermediate",
+  "time": "30 minutes",
+  "authors": [
+    {
+      "name": "Cloud Computing and Distributed Systems",
+      "link": "https://www.univr.it"
+    }
+  ]
+}
