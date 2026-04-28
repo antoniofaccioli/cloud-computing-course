@@ -40,6 +40,6 @@ kubectl get endpoints app-svc
 
 ### 🎯 Kahoot question 3
 
-**A NodePort Service is created with `nodePort: 30080`. A client outside the cluster sends a request to `<NodeIP>:30080`. What happens next?**
+**A NodePort Service on port 30080. A client sends a request to NodeIP:30080. What happens?**
 
 Answer question 3 on Kahoot now, then move to the next step.

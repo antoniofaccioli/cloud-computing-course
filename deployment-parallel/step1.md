@@ -28,6 +28,6 @@ Wait until both Pods show `Running` before continuing.
 
 ### 🎯 Kahoot question 1
 
-**A Deployment with `replicas: 2` is applied. How many ReplicaSets does Kubernetes create?**
+**A Deployment with replicas: 2 is applied. How many ReplicaSets does Kubernetes create?**
 
 Answer question 1 on Kahoot now, then move to the next step.

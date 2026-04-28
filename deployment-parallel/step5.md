@@ -30,6 +30,6 @@ kubectl describe pods -l app=myapp | grep Image:
 
 ### 🎯 Kahoot question 5
 
-**During a RollingUpdate with `maxSurge: 1` and `maxUnavailable: 0` on a Deployment with `replicas: 4`, what is the maximum number of Pods that can exist at any single moment during the update?**
+**RollingUpdate: maxSurge 1, maxUnavailable 0, replicas 4. Max Pods at any moment?**
 
 Answer question 5 on Kahoot now, then move to the next step.

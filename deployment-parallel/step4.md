@@ -33,6 +33,6 @@ curl -s http://<INTERNAL-IP>:30080 -o /dev/null -w "%{http_code}\n"
 
 ### 🎯 Kahoot question 4
 
-**A ClusterIP Service has `selector: app: myapp`. The Deployment is scaled from 2 to 4 replicas. What happens to the Service Endpoints?**
+**A ClusterIP Service selects app: myapp. Deployment scales from 2 to 4. Endpoints?**
 
 Answer question 4 on Kahoot now, then move to the next step.

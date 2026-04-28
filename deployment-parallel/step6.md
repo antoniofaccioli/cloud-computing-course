@@ -36,6 +36,6 @@ Notice that the revision numbers have shifted — the old revision 1 has become 
 
 ### 🎯 Kahoot question 6
 
-**After executing `kubectl rollout undo deployment/app-deployment`, which mechanism does Kubernetes use to restore the previous version?**
+**After kubectl rollout undo, which mechanism restores the previous version?**
 
 Answer question 6 on Kahoot now, then move to the next step.
