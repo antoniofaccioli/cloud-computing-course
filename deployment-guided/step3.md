@@ -7,19 +7,19 @@ First, note the name of one of the running Pods:
 
 ```
 kubectl get pods -l app=web
-```
+```{{exec}}
 
 Delete one Pod (replace `<pod-name>` with one of the actual Pod names from the list above):
 
 ```
 kubectl delete pod <pod-name>
-```
+```{{exec}}
 
 Immediately after deleting, watch what happens:
 
 ```
 kubectl get pods -l app=web -w
-```
+```{{exec}}
 
 You will see the deleted Pod enter `Terminating` status, and within seconds a new Pod appears
 in `ContainerCreating` and then `Running`. The ReplicaSet detected the count dropped to 2

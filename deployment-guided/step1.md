@@ -7,7 +7,7 @@ The manifest has already been prepared in `/root/web-deployment.yaml`. Inspect i
 
 ```
 cat /root/web-deployment.yaml
-```
+```{{exec}}
 
 Notice the key fields:
 - `replicas: 3` — the desired number of Pod copies
@@ -19,16 +19,16 @@ Now apply the manifest:
 
 ```
 kubectl apply -f /root/web-deployment.yaml
-```
+```{{exec}}
 
 Verify the Deployment was created and that Pods are starting:
 
 ```
 kubectl get deployment web-deployment
-```
+```{{exec}}
 
 ```
 kubectl get pods -l app=web
-```
+```{{exec}}
 
 Wait until all three Pods show `Running` in the STATUS column before moving to the next step.

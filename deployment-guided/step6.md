@@ -7,25 +7,25 @@ Roll back to the previous revision:
 
 ```
 kubectl rollout undo deployment/web-deployment
-```
+```{{exec}}
 
 Watch the rollback progress:
 
 ```
 kubectl rollout status deployment/web-deployment
-```
+```{{exec}}
 
 Once complete, verify the image has reverted to `nginx:1.14`:
 
 ```
 kubectl describe pods -l app=web | grep Image:
-```
+```{{exec}}
 
 Check the revision history again:
 
 ```
 kubectl rollout history deployment/web-deployment
-```
+```{{exec}}
 
 Notice that revision 1 has disappeared and a new revision 3 has appeared.
 Kubernetes does not restore the old revision in place — it reuses the old Pod template and
@@ -35,14 +35,14 @@ To roll back to a specific revision (not just the previous one), use `--to-revis
 
 ```
 kubectl rollout undo deployment/web-deployment --to-revision=2
-```
+```{{exec}}
 
 ```
 kubectl rollout status deployment/web-deployment
-```
+```{{exec}}
 
 ```
 kubectl describe pods -l app=web | grep Image:
-```
+```{{exec}}
 
 The Pods should now be running `nginx:1.25` again.

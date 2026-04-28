@@ -8,7 +8,7 @@ The Service manifest has already been prepared. Inspect it:
 
 ```
 cat /root/web-service.yaml
-```
+```{{exec}}
 
 The `selector: app: web` field tells the Service to route traffic to all Pods with the label
 `app: web`. The `port: 80` is what the Service listens on; `targetPort: 80` is the port
@@ -18,13 +18,13 @@ Apply the Service:
 
 ```
 kubectl apply -f /root/web-service.yaml
-```
+```{{exec}}
 
 Inspect the Service:
 
 ```
 kubectl get service web-svc
-```
+```{{exec}}
 
 Note the `CLUSTER-IP` column — this is the stable virtual IP assigned to the Service.
 It will not change even as Pods are replaced.
@@ -33,6 +33,6 @@ List the Endpoints — the actual Pod IPs behind the Service:
 
 ```
 kubectl get endpoints web-svc
-```
+```{{exec}}
 
 You should see three IP addresses, one for each Pod replica.

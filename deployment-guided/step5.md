@@ -7,7 +7,7 @@ View the rollout history:
 
 ```
 kubectl rollout history deployment/web-deployment
-```
+```{{exec}}
 
 You will see two revisions:
 - Revision 1: the initial Deployment with `nginx:1.14`
@@ -18,18 +18,18 @@ In production, it is good practice to record the reason for each update:
 
 ```
 kubectl annotate deployment/web-deployment kubernetes.io/change-cause="Updated nginx to 1.25"
-```
+```{{exec}}
 
 Check the history again:
 
 ```
 kubectl rollout history deployment/web-deployment
-```
+```{{exec}}
 
 To inspect the details of a specific revision, use the `--revision` flag:
 
 ```
 kubectl rollout history deployment/web-deployment --revision=1
-```
+```{{exec}}
 
 This shows the Pod template for revision 1, including the `nginx:1.14` image.
