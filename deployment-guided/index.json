@@ -3,45 +3,45 @@
   "description": "Guided exercise: create a Deployment, observe its ReplicaSet, perform a rolling update, execute a rollback, and expose the application with a ClusterIP Service.",
   "details": {
     "intro": {
-      "text": "## Welcome to Exercise A\n\nIn this guided exercise you will work with the three fundamental building blocks of every Kubernetes production workload:\n\n- A **Deployment** that manages your application replicas\n- A **ReplicaSet** automatically created and managed by the Deployment\n- A **Service** that provides a stable network endpoint in front of your Pods\n\nEvery step explains not just *what* to run but *why* it works that way. Read each explanation before running the command.\n\n**Environment:** a single-node Kubernetes cluster is already running. `kubectl` is configured and ready.",
+      "text": "intro.md",
       "background": "setup.sh"
     },
     "steps": [
       {
         "title": "Step 1 \u2014 Create a Deployment",
-        "text": "## Step 1 \u2014 Create a Deployment\n\nA Deployment is the standard way to run a stateless application in Kubernetes. It manages a ReplicaSet, which in turn manages the Pods.\n\nCreate the manifest file:"
+        "text": "step1.md"
       },
       {
         "title": "Step 2 \u2014 Observe the controller hierarchy",
-        "text": "## Step 2 \u2014 Observe the controller hierarchy\n\nWhen you applied the Deployment, Kubernetes automatically created a ReplicaSet, which then created the Pods. Let's verify the full hierarchy."
+        "text": "step2.md"
       },
       {
         "title": "Step 3 \u2014 Verify self-healing",
-        "text": "## Step 3 \u2014 Verify self-healing\n\nOne of the key guarantees of a ReplicaSet is self-healing: if a Pod is deleted, the ReplicaSet immediately creates a replacement. Let's test this."
+        "text": "step3.md"
       },
       {
         "title": "Step 4 \u2014 Perform a rolling update",
-        "text": "## Step 4 \u2014 Perform a rolling update\n\nA rolling update replaces old Pods gradually, ensuring the application remains available throughout the transition. We will update the container image from nginx:1.14 to nginx:1.25."
+        "text": "step4.md"
       },
       {
         "title": "Step 5 \u2014 Inspect the rollout history",
-        "text": "## Step 5 \u2014 Inspect the rollout history\n\nEvery Deployment update is recorded as a numbered revision. This history makes it possible to roll back to any previous state."
+        "text": "step5.md"
       },
       {
         "title": "Step 6 \u2014 Execute a rollback",
-        "text": "## Step 6 \u2014 Execute a rollback\n\nImagine the new version of the application is causing errors. We want to revert to the previous revision. Kubernetes performs the rollback as another rolling update \u2014 availability is maintained throughout."
+        "text": "step6.md"
       },
       {
         "title": "Step 7 \u2014 Create a ClusterIP Service",
-        "text": "## Step 7 \u2014 Create a ClusterIP Service\n\nPods have ephemeral IP addresses that change every time a Pod is replaced. A Service provides a stable virtual IP and DNS name in front of the Pods. ClusterIP makes the Service reachable only from within the cluster."
+        "text": "step7.md"
       },
       {
         "title": "Step 8 \u2014 Verify internal connectivity",
-        "text": "## Step 8 \u2014 Verify internal connectivity\n\nVerify that the Service correctly routes traffic to the Pods using a temporary debug Pod."
+        "text": "step8.md"
       }
     ],
     "finish": {
-      "text": "## Exercise A complete\n\nYou have:\n- Created a Deployment and observed the Deployment \u2192 ReplicaSet \u2192 Pod hierarchy\n- Verified self-healing: the ReplicaSet replaced a deleted Pod automatically\n- Performed a rolling update with zero downtime\n- Inspected the revision history and executed a rollback\n- Created a ClusterIP Service and verified internal connectivity via DNS\n\nThese are the core operations you will perform on every Kubernetes cluster. Proceed to **Exercise B** when ready."
+      "text": "finish.md"
     }
   },
   "backend": {
