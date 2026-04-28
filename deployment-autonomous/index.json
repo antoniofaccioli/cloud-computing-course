@@ -1,0 +1,34 @@
+{
+  "title": "Autonomous deployment challenge",
+  "description": "Autonomous exercise: apply everything learned in Exercises A and B to deploy a two-version application, expose it, scale it, update it, and roll it back \u2014 without step-by-step guidance.",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      {
+        "title": "Objectives",
+        "text": "step1.md"
+      },
+      {
+        "title": "Verification",
+        "text": "step2.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  },
+  "difficulty": "Advanced",
+  "time": "25 minutes",
+  "authors": [
+    {
+      "name": "Cloud Computing and Distributed Systems",
+      "link": "https://www.univr.it"
+    }
+  ]
+}
