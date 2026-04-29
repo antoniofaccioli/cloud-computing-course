@@ -5,15 +5,12 @@ Secrets work like ConfigMaps but are designed for sensitive data. Kubernetes sto
 Create a Secret with database credentials:
 
 ```bash
-kubectl create secret generic db-secret \
-  --from-literal=DB_HOST=postgres.internal \
-  --from-literal=DB_PASSWORD=s3cr3tP@ss \
-  -n lesson15
+kubectl create secret generic db-secret --from-literal=DB_HOST=postgres.internal --from-literal=DB_PASSWORD=s3cr3tP@ss -n lesson15
 ```{{exec}}
 
 Inspect the Secret:
 
-```{{exec}}bash
+```bash
 kubectl get secret db-secret -n lesson15 -o yaml
 ```{{exec}}
 
@@ -23,12 +20,10 @@ Notice that the values under `data` are **Base64-encoded**, not plain text. Base
 kubectl get secret db-secret -n lesson15 -o jsonpath='{.data.DB_PASSWORD}' | base64 -d
 ```{{exec}}
 
-You get the original value back. The real security comes from the cluster-level protections: encryption at rest in etcd, selective distribution to nodes, and in-memory storage (never written to node disk).
+You get the original value back. The real security comes from the cluster-level protections: encryption at rest in etcd, selective distribution to nodes, and in-memory storage on worker nodes.
 
-Compare with the ConfigMap:
+Compare with the ConfigMap — plain text, no encoding:
 
-```{{exec}}bash
+```bash
 kubectl get configmap app-config -n lesson15 -o jsonpath='{.data.LOG_LEVEL}'
 ```{{exec}}
-
-ConfigMap values are returned as plain text with no encoding.

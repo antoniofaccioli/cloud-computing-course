@@ -9,7 +9,7 @@ kubectl apply -f /root/frontend-service.yaml
 
 Wait for the Pods to be ready:
 
-```{{exec}}bash
+```bash
 kubectl get pods -n lesson15 -w
 ```{{exec}}
 

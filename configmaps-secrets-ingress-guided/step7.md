@@ -2,7 +2,7 @@
 
 An Ingress resource on its own does nothing — it only stores routing rules. The **Ingress Controller** is the component that reads those rules and enforces them as a reverse proxy.
 
-Install the Nginx Ingress Controller using the official baremetal manifest (NodePort mode — appropriate for a cluster without a cloud load balancer):
+Install the Nginx Ingress Controller using the official baremetal manifest:
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.15.1/deploy/static/provider/baremetal/deploy.yaml
@@ -10,11 +10,8 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 
 Wait for the controller Pod to be ready:
 
-```{{exec}}bash
-kubectl wait --namespace ingress-nginx \
-  --for=condition=ready pod \
-  --selector=app.kubernetes.io/component=controller \
-  --timeout=120s
+```bash
+kubectl wait --namespace ingress-nginx --for=condition=ready pod --selector=app.kubernetes.io/component=controller --timeout=120s
 ```{{exec}}
 
 Verify the controller is running:
@@ -25,23 +22,20 @@ kubectl get pods -n ingress-nginx
 
 Find the NodePort assigned to the controller:
 
-```{{exec}}bash
+```bash
 kubectl get svc ingress-nginx-controller -n ingress-nginx
 ```{{exec}}
 
-Note the port in the `80:3XXXX/TCP` column — this is the NodePort you will use to reach the Ingress from outside the cluster. Save it:
+Note the port in the `80:3XXXX/TCP` column — this is the NodePort you will use to reach the Ingress. Save it:
 
 ```bash
-NODEPORT=$(kubectl get svc ingress-nginx-controller -n ingress-nginx \
-  -o jsonpath='{.spec.ports[?(@.port==80)].nodePort}')
-echo "Ingress NodePort: $NODEPORT"
+echo "NodePort: $(kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath='{.spec.ports[?(@.port==80)].nodePort}')"
 ```{{exec}}
 
-Also get the node's internal IP:
+Get the node's internal IP:
 
-```{{exec}}bash
-NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
-echo "Node IP: $NODE_IP"
+```bash
+echo "Node IP: $(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')"
 ```{{exec}}
 
-A request to `http://$NODE_IP:$NODEPORT` reaches the Ingress Controller. Without an Ingress resource defining routing rules, it returns 404. The next step adds those rules.
+A request to `http://NODE_IP:NODEPORT` reaches the Ingress Controller. Without routing rules it returns 404. The next step adds them.

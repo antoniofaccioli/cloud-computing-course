@@ -9,7 +9,7 @@ kubectl apply -f /root/api-service.yaml
 
 Wait for the api Pod to be ready:
 
-```{{exec}}bash
+```bash
 kubectl wait deployment api -n lesson15 --for=condition=Available --timeout=60s
 ```{{exec}}
 
@@ -24,7 +24,7 @@ The values appear **decoded** inside the container. The application process sees
 
 Check the current state of the namespace — all resources so far:
 
-```{{exec}}bash
+```bash
 kubectl get all -n lesson15
 ```{{exec}}
 

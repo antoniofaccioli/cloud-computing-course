@@ -1,42 +1,14 @@
 # Step 8 — Create the Ingress resource
 
-Create an Ingress with path-based routing: `/` goes to the frontend Service, `/api` goes to the api Service.
+Apply the pre-written Ingress manifest with path-based routing: `/` goes to the frontend Service, `/api` goes to the api Service.
 
 ```bash
-cat << 'EOF' | kubectl apply -f -
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: app-ingress
-  namespace: lesson15
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: myapp.local
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: frontend
-            port:
-              number: 80
-      - path: /api
-        pathType: Prefix
-        backend:
-          service:
-            name: api
-            port:
-              number: 80
-EOF
+kubectl apply -f /root/app-ingress.yaml
 ```{{exec}}
 
 Inspect the Ingress:
 
-```{{exec}}bash
+```bash
 kubectl get ingress app-ingress -n lesson15
 ```{{exec}}
 
@@ -47,3 +19,11 @@ kubectl describe ingress app-ingress -n lesson15
 The `Rules` section shows the routing table: host `myapp.local`, path `/` → `frontend:80`, path `/api` → `api:80`.
 
 The Nginx Ingress Controller detects the new resource automatically via the Kubernetes API watch mechanism and updates its internal `nginx.conf` without restarting.
+
+Verify by inspecting the nginx.conf inside the controller Pod:
+
+```bash
+kubectl exec -n ingress-nginx $(kubectl get pod -n ingress-nginx -l app.kubernetes.io/component=controller -o jsonpath='{.items[0].metadata.name}') -- cat /etc/nginx/nginx.conf | grep myapp
+```{{exec}}
+
+You should see `myapp.local` referenced in the generated Nginx configuration.

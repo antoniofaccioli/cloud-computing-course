@@ -5,16 +5,12 @@ A **ConfigMap** stores non-sensitive configuration as key-value pairs. The appli
 Create a ConfigMap named `app-config` with three entries:
 
 ```bash
-kubectl create configmap app-config \
-  --from-literal=APP_ENV=production \
-  --from-literal=LOG_LEVEL=info \
-  --from-literal=MAX_CONNECTIONS=100 \
-  -n lesson15
+kubectl create configmap app-config --from-literal=APP_ENV=production --from-literal=LOG_LEVEL=info --from-literal=MAX_CONNECTIONS=100 -n lesson15
 ```{{exec}}
 
 Inspect the result:
 
-```{{exec}}bash
+```bash
 kubectl get configmap app-config -n lesson15 -o yaml
 ```{{exec}}
 
