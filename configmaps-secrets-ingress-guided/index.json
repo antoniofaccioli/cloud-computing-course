@@ -1,0 +1,25 @@
+{
+  "title": "ConfigMaps, Secrets and Ingress",
+  "description": "A guided exercise: separate configuration from code using ConfigMaps and Secrets, then expose two services through a single Nginx Ingress Controller.",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      { "title": "Step 1 — Create a ConfigMap",                  "text": "step1.md" },
+      { "title": "Step 2 — Inject ConfigMap as env variables",   "text": "step2.md" },
+      { "title": "Step 3 — Mount ConfigMap as a file",           "text": "step3.md" },
+      { "title": "Step 4 — Live update without Pod restart",     "text": "step4.md" },
+      { "title": "Step 5 — Create a Secret",                     "text": "step5.md" },
+      { "title": "Step 6 — Inject Secret into a Deployment",     "text": "step6.md" },
+      { "title": "Step 7 — Install the Nginx Ingress Controller","text": "step7.md" },
+      { "title": "Step 8 — Create the Ingress resource",         "text": "step8.md" },
+      { "title": "Step 9 — Test path-based routing",             "text": "step9.md" }
+    ],
+    "finish": { "text": "finish.md" }
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-1node" },
+  "difficulty": "Intermediate",
+  "time": "50 minutes"
+}
