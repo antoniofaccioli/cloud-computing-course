@@ -1,0 +1,19 @@
+{
+  "title": "ConfigMaps, Secrets and Ingress (autonomous)",
+  "description": "Autonomous exercise: extend the running cluster from Exercise A by adding a third service with its own ConfigMap, updating configuration live, and adding a host-based Ingress rule.",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      { "title": "Step 1 — Add a third service with its own ConfigMap", "text": "step1.md" },
+      { "title": "Step 2 — Verify live ConfigMap update",               "text": "step2.md" },
+      { "title": "Step 3 — Add a host-based Ingress rule",              "text": "step3.md" }
+    ],
+    "finish": { "text": "finish.md" }
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-1node" },
+  "difficulty": "Intermediate",
+  "time": "30 minutes"
+}
