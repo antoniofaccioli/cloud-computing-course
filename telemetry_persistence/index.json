@@ -1,0 +1,31 @@
+{
+  "title": "Telemetry persistence: autonomous exercise",
+  "description": "Reproduce the full telemetry scenario from Exercise A on your own. Build the image, deploy without storage, observe data loss, fix it with a PVC, and verify persistence.",
+  "difficulty": "Intermediate",
+  "time": "30",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "assets/setup.sh"
+    },
+    "steps": [
+      { "title": "Build the image and import into containerd", "text": "step1.md" },
+      { "title": "Deploy without storage and simulate readings", "text": "step2.md" },
+      { "title": "Crash the Pod and observe data loss", "text": "step3.md" },
+      { "title": "Create the PVC and deploy with persistent storage", "text": "step4.md" },
+      { "title": "Simulate readings, crash, and verify persistence", "text": "step5.md" },
+      { "title": "Trace the storage chain", "text": "step6.md" }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        { "file": "assets/setup.sh", "target": "/root/", "chmod": "+x" }
+      ]
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}

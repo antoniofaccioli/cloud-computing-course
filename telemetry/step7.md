@@ -8,9 +8,13 @@ Let it run for 20–30 seconds. In the **first terminal**, check how many readin
 
 `curl -s http://localhost:30080/readings | python3 -c "import sys,json; data=json.load(sys.stdin); print(f'{len(data)} readings stored')"`{{execute}}
 
-Now crash the Pod — same action as Step 4:
+Get the exact name of the running Pod:
 
-`kubectl delete pod -l app=telemetry-api`{{execute}}
+`kubectl get pods`{{execute}}
+
+Delete it by name (replace `<pod-name>` with the actual name):
+
+`kubectl delete pod <pod-name>`{{execute}}
 
 Watch recovery:
 
