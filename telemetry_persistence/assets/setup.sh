@@ -4,17 +4,6 @@ until kubectl get nodes | grep -q " Ready"; do
   sleep 3
 done
 
-# Install local-path provisioner so PVCs can be dynamically provisioned
-kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
-
-kubectl wait --namespace local-path-storage \
-  --for=condition=ready pod \
-  --selector=app=local-path-provisioner \
-  --timeout=120s
-
-# Set local-path as the default StorageClass
-kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
-
 mkdir -p /root/telemetry-api
 
 cat > /root/telemetry-api/app.py << 'EOF'
