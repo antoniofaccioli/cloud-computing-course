@@ -1,5 +1,5 @@
 {
-  "title": "Lesson 16A — From data loss to persistence: a telemetry service",
+  "title": "From data loss to persistence: a telemetry service",
   "description": "Build and deploy a sensor telemetry API backed by SQLite. Experience real data loss without persistent storage, then fix it with a PersistentVolumeClaim.",
   "difficulty": "Intermediate",
   "time": "45",

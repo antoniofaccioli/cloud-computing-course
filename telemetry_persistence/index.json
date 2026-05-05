@@ -1,5 +1,5 @@
 {
-  "title": "Lesson 16B — Telemetry persistence: autonomous exercise",
+  "title": "Telemetry persistence: autonomous exercise",
   "description": "Reproduce the full telemetry scenario from Exercise A on your own. Build the image, deploy without storage, observe data loss, fix it with a PVC, and verify persistence.",
   "difficulty": "Intermediate",
   "time": "30",
