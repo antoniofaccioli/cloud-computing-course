@@ -1,0 +1,33 @@
+{
+  "title": "From data loss to persistence: a telemetry service",
+  "description": "Build and deploy a sensor telemetry API backed by SQLite. Experience real data loss without persistent storage, then fix it with a PersistentVolumeClaim.",
+  "difficulty": "Intermediate",
+  "time": "45",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "assets/setup.sh"
+    },
+    "steps": [
+      { "title": "Inspect the project and build the image", "text": "step1.md" },
+      { "title": "Deploy without persistent storage", "text": "step2.md" },
+      { "title": "Simulate sensor telemetry", "text": "step3.md" },
+      { "title": "Crash the Pod and observe data loss", "text": "step4.md" },
+      { "title": "Create the PersistentVolumeClaim", "text": "step5.md" },
+      { "title": "Deploy with persistent storage", "text": "step6.md" },
+      { "title": "Simulate telemetry and crash the Pod again", "text": "step7.md" },
+      { "title": "Trace the full storage chain", "text": "step8.md" }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        { "file": "assets/setup.sh", "target": "/root/", "chmod": "+x" }
+      ]
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
