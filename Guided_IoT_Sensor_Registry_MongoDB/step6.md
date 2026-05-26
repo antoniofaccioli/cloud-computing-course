@@ -13,15 +13,15 @@ printjson(result)
 
 Copy the file into the container:
 
-```
+```bash
 docker cp /root/aggregate.js mongo:/tmp/aggregate.js
-```
+```{{exec}}
 
 Execute the pipeline:
 
-```
+```bash
 docker exec mongo mongosh sensor_registry /tmp/aggregate.js
-```
+```{{exec}}
 
 The pipeline executes in order:
 - `$match` keeps only active sensors — SNS-004 (maintenance) is excluded

@@ -16,20 +16,20 @@ printjson(db.sensors.insertOne({
 
 Copy the file into the container:
 
-```
+```bash
 docker cp /root/insert_one.js mongo:/tmp/insert_one.js
-```
+```{{exec}}
 
 Execute the script:
 
-```
+```bash
 docker exec mongo mongosh sensor_registry /tmp/insert_one.js
-```
+```{{exec}}
 
 The output shows `acknowledged: true` and the auto-generated `_id`. Retrieve the document to verify the nested structure:
 
-```
+```bash
 docker exec mongo mongosh sensor_registry --eval 'db.sensors.findOne({ device_id: "SNS-001" })'
-```
+```{{exec}}
 
 MongoDB created the `sensor_registry` database automatically on the first write — no `CREATE DATABASE` needed.
