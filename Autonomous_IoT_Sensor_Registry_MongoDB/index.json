@@ -1,0 +1,55 @@
+{
+  "title": "IoT Sensor Registry \u2014 MongoDB Autonomous",
+  "description": "Autonomous exercise: build and manage a MongoDB sensor registry without guided commands. You are given the schema, objectives, and a command reference \u2014 find the full syntax yourself.",
+  "details": {
+    "steps": [
+      {
+        "title": "Start MongoDB and verify connectivity",
+        "text": "step1.md"
+      },
+      {
+        "title": "Insert the first sensor",
+        "text": "step2.md"
+      },
+      {
+        "title": "Populate the sensor fleet",
+        "text": "step3.md"
+      },
+      {
+        "title": "Query the collection",
+        "text": "step4.md"
+      },
+      {
+        "title": "Update documents",
+        "text": "step5.md"
+      },
+      {
+        "title": "Aggregation pipeline",
+        "text": "step6.md"
+      },
+      {
+        "title": "Delete and verify",
+        "text": "step7.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "setup.sh",
+          "target": "/root/",
+          "chmod": "+x"
+        }
+      ]
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
