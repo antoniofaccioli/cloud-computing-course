@@ -1,6 +1,6 @@
 # Step 4 — Querying the collection
 
-MongoDB queries are JSON-like filter documents. Run each command below and observe the results.
+MongoDB queries are JSON-like filter documents. Run each command and observe the results.
 
 **All sensors — no filter:**
 
@@ -20,7 +20,7 @@ docker exec mongo mongosh sensor_registry --eval 'db.sensors.find({ status: "act
 docker exec mongo mongosh sensor_registry --eval 'db.sensors.find({ "specs.battery_pct": { $gt: 70 } }, { device_id: 1, "specs.battery_pct": 1, _id: 0 }).toArray()'
 ```
 
-Dot-notation `"specs.battery_pct"` queries a field inside a nested object. The second argument is a projection: `1` includes the field, `0` excludes it.
+Dot-notation `"specs.battery_pct"` queries a field inside a nested object. The second argument is a projection: `1` includes, `0` excludes.
 
 **Temperature or humidity sensors — membership operator `$in`:**
 
@@ -34,4 +34,4 @@ docker exec mongo mongosh sensor_registry --eval 'db.sensors.find({ type: { $in:
 docker exec mongo mongosh sensor_registry --eval 'db.sensors.find({ tags: "critical" }).toArray()'
 ```
 
-MongoDB searches inside arrays automatically: `{ tags: "critical" }` matches any document whose `tags` array contains the string `"critical"` — no special operator needed.
+MongoDB searches inside arrays automatically: `{ tags: "critical" }` matches any document whose `tags` array contains `"critical"`.

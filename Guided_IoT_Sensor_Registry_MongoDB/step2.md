@@ -1,9 +1,8 @@
 # Step 2 — Inserting the first sensor document
 
-Create a JavaScript file with the first document. Notice the nested `location` and `specs` objects and the `tags` array — this is the document model in action.
+The file `/root/insert_one.js` was prepared during setup. It inserts a document with a nested `location` object, a nested `specs` object, and a `tags` array:
 
-```bash
-cat > /tmp/insert_one.js << 'EOF'
+```javascript
 printjson(db.sensors.insertOne({
   device_id: "SNS-001",
   name: "Temperature Sensor Alpha",
@@ -13,14 +12,15 @@ printjson(db.sensors.insertOne({
   tags: ["outdoor", "critical"],
   status: "active"
 }))
-EOF
 ```
 
-Copy the file into the container and execute it:
+Copy the file into the container:
 
 ```bash
-docker cp /tmp/insert_one.js mongo:/tmp/insert_one.js
+docker cp /root/insert_one.js mongo:/tmp/insert_one.js
 ```
+
+Execute the script:
 
 ```bash
 docker exec mongo mongosh sensor_registry /tmp/insert_one.js
@@ -32,4 +32,4 @@ The output shows `acknowledged: true` and the auto-generated `_id`. Retrieve the
 docker exec mongo mongosh sensor_registry --eval 'db.sensors.findOne({ device_id: "SNS-001" })'
 ```
 
-MongoDB created the `sensor_registry` database automatically on the first write — no `CREATE DATABASE` statement is needed.
+MongoDB created the `sensor_registry` database automatically on the first write — no `CREATE DATABASE` needed.

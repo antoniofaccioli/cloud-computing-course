@@ -9,4 +9,4 @@ You will practice:
 - Running a multi-stage aggregation pipeline (`$match`, `$group`, `$sort`)
 - Deleting documents and verifying the result
 
-The MongoDB 7 image has already been pulled and is ready to use.
+The MongoDB 7 image and all script files have been prepared during setup.
