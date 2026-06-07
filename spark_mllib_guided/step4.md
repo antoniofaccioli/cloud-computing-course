@@ -3,7 +3,7 @@
 Run the joins and skew script:
 
 ```
-docker run --rm -v /root/spark-lab/data:/data spark:python3 /opt/spark/bin/spark-submit /data/joins_skew.py
+docker run --rm -v /root/spark-lab/data:/data spark-mllib:latest /opt/spark/bin/spark-submit /data/joins_skew.py
 ```{{exec}}
 
 Observe three outputs:

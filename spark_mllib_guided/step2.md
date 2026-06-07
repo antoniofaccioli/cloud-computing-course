@@ -3,7 +3,7 @@
 Run the training script:
 
 ```
-docker run --rm -v /root/spark-lab/data:/data spark:python3 /opt/spark/bin/spark-submit /data/train_pipeline.py
+docker run --rm -v /root/spark-lab/data:/data spark-mllib:latest /opt/spark/bin/spark-submit /data/train_pipeline.py
 ```{{exec}}
 
 You should see:

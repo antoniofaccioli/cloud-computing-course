@@ -3,7 +3,7 @@
 Run the serving script. It loads the model saved in Step 2 and applies it to five new transactions that were never seen during training:
 
 ```
-docker run --rm -v /root/spark-lab/data:/data spark:python3 /opt/spark/bin/spark-submit /data/serve_pipeline.py
+docker run --rm -v /root/spark-lab/data:/data spark-mllib:latest /opt/spark/bin/spark-submit /data/serve_pipeline.py
 ```{{exec}}
 
 The output shows `prediction` (0.0 = legitimate, 1.0 = fraudulent) and `probability` for each transaction.
