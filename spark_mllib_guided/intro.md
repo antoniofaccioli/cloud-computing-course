@@ -6,12 +6,10 @@ In this exercise you will work with three PySpark scripts already prepared in `/
 - `serve_pipeline.py` — reloads the saved model and runs inference on new unseen data
 - `joins_skew.py` — demonstrates broadcast join and salting for data skew mitigation
 
-The environment setup (running in the background) has already built a custom Docker image called `spark-mllib:latest`. It extends the official `spark:python3` image by adding `numpy`, which is required by MLlib.
+MLlib requires `numpy`, which is not included in the base `spark:python3` image. The first step will build a custom image that adds it.
 
-Verify the image is ready:
+Verify the scripts are ready:
 
 ```
-docker images spark-mllib
+ls /root/spark-lab/data/
 ```{{exec}}
-
-You should see `spark-mllib` with tag `latest`. If the image is not yet listed, wait a few seconds and run the command again.

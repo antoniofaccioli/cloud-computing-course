@@ -1,13 +1,10 @@
 #!/bin/bash
 mkdir -p /root/spark-lab/data
 
-# Build custom Spark image with numpy (required by MLlib)
 cat > /root/spark-lab/Dockerfile << 'DOCKEREOF'
 FROM spark:python3
 RUN pip install numpy --quiet
 DOCKEREOF
-
-docker build -t spark-mllib:latest /root/spark-lab/
 
 cat > /root/spark-lab/data/train_pipeline.py << 'PY1EOF'
 from pyspark.sql import SparkSession

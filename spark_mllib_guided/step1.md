@@ -1,22 +1,23 @@
-## Step 1 — Verify the scripts
+## Step 1 — Build the Spark MLlib image
 
-Inspect the training script to understand the pipeline structure:
+The `spark:python3` base image does not include `numpy`, which is required by MLlib. Build a custom image that adds it:
+
+```
+docker build -t spark-mllib:latest /root/spark-lab/
+```{{exec}}
+
+This takes about a minute. When it completes, verify the image exists:
+
+```
+docker images spark-mllib
+```{{exec}}
+
+You should see `spark-mllib` with tag `latest` and a size around 1.5 GB.
+
+Now inspect the training script to understand the pipeline structure:
 
 ```
 cat /root/spark-lab/data/train_pipeline.py
 ```{{exec}}
 
-The pipeline has four stages:
-
-1. `StringIndexer` — converts the string column `category` into a numeric index
-2. `VectorAssembler` — merges `cat_index`, `amount`, and `frequency` into a single feature vector
-3. `StandardScaler` — normalises the feature magnitudes
-4. `LogisticRegression` — the binary classifier with `label` as the target column
-
-Inspect the serving script:
-
-```
-cat /root/spark-lab/data/serve_pipeline.py
-```{{exec}}
-
-Notice that `serve_pipeline.py` has no knowledge of the pipeline stages — it simply calls `PipelineModel.load()` and `model.transform()`. The stage configuration and fitted weights are entirely contained in the saved model directory.
+The pipeline has four stages: `StringIndexer` → `VectorAssembler` → `StandardScaler` → `LogisticRegression`. Each stage is either a Transformer or an Estimator. When `Pipeline.fit()` is called, Spark fits each Estimator stage in order and produces a `PipelineModel`.
