@@ -3,7 +3,7 @@ mkdir -p /root/spark-lab/data
 
 cat > /root/spark-lab/Dockerfile << 'DOCKEREOF'
 FROM spark:python3
-RUN pip install numpy --quiet
+RUN pip install numpy --break-system-packages --quiet
 DOCKEREOF
 
 cat > /root/spark-lab/data/train_pipeline.py << 'PY1EOF'
