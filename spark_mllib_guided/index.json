@@ -1,0 +1,22 @@
+{
+  "title": "Spark MLlib — Guided track",
+  "description": "A step-by-step exercise: build an MLlib Pipeline for fraud detection, evaluate it, save the model, reload it and run inference on new data.",
+  "difficulty": "Intermediate",
+  "time": "30",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      { "title": "Step 1 — Pull the Spark image", "text": "step1.md" },
+      { "title": "Step 2 — Train and save the Pipeline", "text": "step2.md" },
+      { "title": "Step 3 — Load the model and run inference", "text": "step3.md" },
+      { "title": "Step 4 — Distributed joins and data skew", "text": "step4.md" }
+    ],
+    "finish": { "text": "finish.md" }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
