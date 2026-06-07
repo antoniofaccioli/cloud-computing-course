@@ -84,3 +84,6 @@ roleRef:
   name: spark-role
   apiGroup: rbac.authorization.k8s.io
 YAMLEOF
+
+# Extract cluster CA cert for Spark TLS authentication
+kubectl config view --raw -o jsonpath='{.clusters[0].cluster.certificate-authority-data}' | base64 -d > /root/ca.crt

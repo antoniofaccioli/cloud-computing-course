@@ -1,23 +1,27 @@
 ## Step 3 — Submit the Spark job
 
-Open a second terminal and start watching Pod creation — do this **before** submitting the job:
-
-```
-watch kubectl get pods
-```{{exec T2}}
-
-Back in the first terminal, get the Kubernetes API server IP:
+Get the API server IP:
 
 ```
 export API_IP=$(kubectl get endpoints kubernetes -o jsonpath='{.subsets[0].addresses[0].ip}') && echo $API_IP
 ```{{exec}}
 
-Submit the job. The `--conf spark.kubernetes.driver.deletionGracePeriodSeconds=3600` flag keeps the Driver Pod in `Completed` state after the job finishes, so you can inspect its logs in the next step:
+Extract the cluster CA certificate from the kubeconfig — Spark needs it to validate the TLS connection to the Kubernetes API:
 
 ```
-docker run --rm --network host -v /root/.kube:/root/.kube localhost:5000/spark-app:latest /opt/spark/bin/spark-submit --master k8s://https://$API_IP:6443 --deploy-mode cluster --name spark-k8s-job --conf spark.executor.instances=1 --conf spark.kubernetes.container.image=localhost:5000/spark-app:latest --conf spark.kubernetes.namespace=default --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark-sa --conf spark.kubernetes.driver.pod.name=spark-driver --conf spark.kubernetes.driver.deletionGracePeriodSeconds=3600 local:///opt/spark/work-dir/job.py
+kubectl config view --raw -o jsonpath='{.clusters[0].cluster.certificate-authority-data}' | base64 -d > /root/ca.crt
 ```{{exec}}
 
-Watch the second terminal: the Driver Pod appears first (`Running`), then one Executor Pod. The Executor Pod is deleted automatically when the job completes. The Driver Pod stays in `Completed` state.
+Submit the job. The kubeconfig and CA cert are mounted into the container so Spark can authenticate to the cluster:
 
-When you see the Driver Pod in `Completed` state, press **Ctrl+C** in the second terminal to stop `watch`, then continue to the next step.
+```
+docker run --rm --network host -v /root/.kube:/root/.kube -v /root/ca.crt:/root/ca.crt localhost:5000/spark-app:latest /opt/spark/bin/spark-submit --master k8s://https://$API_IP:6443 --deploy-mode cluster --name spark-k8s-job --conf spark.executor.instances=1 --conf spark.kubernetes.container.image=localhost:5000/spark-app:latest --conf spark.kubernetes.namespace=default --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark-sa --conf spark.kubernetes.driver.pod.name=spark-driver --conf spark.kubernetes.driver.deletionGracePeriodSeconds=3600 --conf spark.kubernetes.authenticate.submission.caCertFile=/root/ca.crt --conf spark.kubernetes.authenticate.driver.caCertFile=/root/ca.crt local:///opt/spark/work-dir/job.py
+```{{exec}}
+
+While the job runs, open the tab **Terminal 2** and watch the Pods:
+
+```
+kubectl get pods --watch
+```{{exec T2}}
+
+You will see the Driver Pod appear (`Running`), then one Executor Pod. The Executor is deleted automatically when the job completes. The Driver Pod stays in `Completed` state. Press **Ctrl+C** in Terminal 2 to stop watching, then continue to the next step.
